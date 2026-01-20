@@ -5,25 +5,23 @@
 
 import socket
 
-HOST = "192.168.1.55"
-PORT = 9001
+HOST = "127.0.0.1"
+PORT = 5000
 
-def main():
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
-        client.connect((HOST, PORT))
-        print("Connected to server")
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client.connect((HOST, PORT))
 
-        while True:
-            command = input("Enter command: ")
-            client.sendall(command.encode())
+print("Подключено к серверу")
 
-            data = client.recv(1024)
-            response = data.decode()
-            print("Server:", response)
+while True:
+    command = input("Введите команду: ")
 
-            if command == "stop":
-                break
+    client.send(command.encode())
+    response = client.recv(1024).decode()
+    print("Ответ сервера:", response)
 
+    if command == "stop":
+        break
 
-if __name__ == "__main__":
-    main()
+client.close()
+print("Соединение закрыто")
