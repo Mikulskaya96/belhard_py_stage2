@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Погода в городах</title>
+</head>
+<body>
+    <h1>🌤 Погода в {{ weather.city }}</h1>
+    <img
+        src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png"
+        alt="Погода"
+    >
+    <p>🌡 Температура: {{ weather.temp }} °C</p>
+    <p>🤔 Ощущается как: {{ weather.feels }} °C</p>
+    <p>☁️ Описание: {{ weather.description }}</p>
+    <br>
+
+
+    <li><a href="/weather-minsk/">Погода в Минске</a></li>
+
+    <br><br>
+   <a href="/">Назад на главную</a>
+
+</body>
+</html>

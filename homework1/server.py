@@ -24,10 +24,10 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
-
+#SOCK_DGRAM - UDP скоросной протокол,не гарантирует доставку,использ в видео связи или игр. SOCK_STREAM -TCP гарантирует доставку, AF_INET -IPV4 ip адресс
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
-server.listen()
+server.listen()#определяет что мы будем ждать сервер
 
 logger.info("Сервер запущен")
 print("Сервер запущен...")
