@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Вход{% endblock %}
+
+{% block content %}
+<div class="login-wrapper">
+    <div class="glass login-glass">
+        <h2>Вход</h2>
+
+        <form method="post" class="login-form">
+            <input type="text" name="login" placeholder="Логин">
+            <input type="password" name="password" placeholder="Пароль">
+            <button type="submit" class="glass-button">Войти</button>
+        </form>
+  <div class="auth-helper" style="margin-top: 20px; text-align: center;">
+    <p style="margin-bottom: 8px; font-size: 14px; color: rgba(255,255,255,0.6);">Впервые у нас?</p>
+    <a href="/register" class="glass-button" style="text-decoration: none; font-size: 14px; padding: 8px 20px; background: rgba(255,255,255,0.1);">Создать аккаунт</a>
+</div>
+    </div>
+</div>
+{% endblock %}

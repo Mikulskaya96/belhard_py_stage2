@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+<div class="login-wrapper">
+    <div class="glass login-glass">
+
+        <h2>Регистрация</h2>
+
+        <form method="post" class="login-form">
+            <input type="text" name="first_name" placeholder="Имя">
+            <input type="text" name="last_name" placeholder="Фамилия">
+            <input type="text" name="login" placeholder="Логин">
+            <input type="password" name="password" placeholder="Пароль">
+            <input type="email" name="email" placeholder="Email">
+            <input type="number" name="age" placeholder="Возраст">
+
+  <form method="POST" class="login-form">
+    <button type="submit" class="glass-button">Зарегистрироваться</button>
+
+    <div class="auth-helper" style="margin-top: 20px; text-align: center;">
+        <p style="margin-bottom: 8px; font-size: 14px; color: rgba(255,255,255,0.6);">Уже есть аккаунт?</p>
+        <a href="/login" class="glass-button" style="text-decoration: none; font-size: 14px; background: rgba(255,255,255,0.1);">Войти в профиль</a>
+    </div>
+</form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}

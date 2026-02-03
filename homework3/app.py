@@ -57,15 +57,52 @@ def duck():
                     что можно только от 1 до 10
 """
 #2
+# @app.route("/fox/")
+# def fox():
+#     url = "https://randomfox.ca/floof/"
+#     response = requests.get(url)
+#     data = response.json()
+#
+#     fox_image = data["image"]
+#
+#     return render_template("fox.html", fox_image=fox_image)
+
+
+
+def get_foxes(count):
+    fox_images = []
+
+    for _ in range(count):
+        try:
+            response = requests.get(
+                "https://randomfox.ca/floof/",
+                timeout=3
+            )
+            data = response.json()
+            fox_images.append(data["image"])
+        except requests.exceptions.RequestException:
+            pass  # если API не ответил — просто пропускаем
+
+    return fox_images
+
+
 @app.route("/fox/")
-def fox():
-    url = "https://randomfox.ca/floof/"
-    response = requests.get(url)
-    data = response.json()
+def fox_4():
+    fox_images = get_foxes(4)
+    return render_template("fox.html", fox_images=fox_images, count=4)
 
-    fox_image = data["image"]
 
-    return render_template("fox.html", fox_image=fox_image)
+@app.route("/fox/10/")
+def fox_10():
+    fox_images = get_foxes(10)
+    return render_template("fox.html", fox_images=fox_images, count=10)
+
+
+
+
+
+
+
 
 """
 3. - по желанию добавить еще один ендпоинт на любую тему

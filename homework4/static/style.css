@@ -1,0 +1,223 @@
+
+/* ===== Общий фон ===== */
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #3a1c71, #7b4397, #dc2430);
+    color: #fff;
+}
+
+/* Центрирование */
+.page-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: auto;
+}
+
+/* ===== Главное большое стекло ===== */
+.main-glass {
+    width: 70%;
+    max-width: 700px;
+    padding: 40px;
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Заголовок */
+.main-glass h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+/* ===== Ссылки ===== */
+.main-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Стеклянные кнопки */
+.main-links a {
+    text-decoration: none;
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+
+    transition: all 0.25s ease;
+}
+
+/* Анимация наведения */
+.main-links a:hover {
+    transform: translateY(-4px) scale(1.03);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== Города (меньшие стекла) ===== */
+.cities {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.cities a {
+    font-size: 14px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* ===== Центрирование страницы логина ===== */
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== Стеклянная карточка логина ===== */
+.login-glass {
+    width: 360px;
+    padding: 30px;
+    text-align: center;
+}
+
+/* ===== Форма ===== */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* ===== Инпуты ===== */
+.login-form input {
+    padding: 12px 16px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+/* ===== Кнопка ===== */
+.login-form button {
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.login-form button:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.error {
+    color: #ffb3b3;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* ===== Универсальные стеклянные кнопки ===== */
+.glass-button {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Тонкая рамка для эффекта грани */
+
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 0.25s ease;
+    outline: none;
+}
+
+/* Эффект при наведении */
+.glass-button:hover {
+    transform: translateY(-4px) scale(1.03);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Эффект при нажатии */
+.glass-button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Делаем ссылки полноценными кнопками */
+.auth-actions .glass-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 40px;
+    box-sizing: border-box;
+}
+
+/* Ссылка "На главную" может быть чуть менее заметной */
+.auth-actions .glass-button:last-child {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center; /* Центрируем меню */
+    gap: 10px;               /* Расстояние между кнопками */
+    margin-bottom: 30px;     /* Отступ от меню до контента */
+    flex-wrap: wrap;         /* Чтобы кнопки переносились на телефонах */
+}
+
+.auth-navigation .glass-button {
+    display: block; /* Растягивает на всю ширину */
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+/* Сделаем основной текст (Уже есть аккаунт?) чуть мягче */
+.auth-navigation p {
+    margin: 0 0 8px 0;
+    font-weight: 300;
+}
+
+/* Общий стиль для вспомогательных ссылок */
+.auth-helper .glass-button {
+    display: inline-flex; /* Чтобы кнопка не растягивалась на всю ширину, если не нужно */
+    justify-content: center;
+    align-items: center;
+    min-width: 150px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-helper p {
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.container {
+    margin-top: 0;
+}
