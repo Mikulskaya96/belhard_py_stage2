@@ -1,34 +1,33 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Flask homework 3</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+{% extends "base.html" %}
 
-<body>
-
+{% block content %}
 <div class="page-bg">
-
     <div class="main-glass">
-        <h1>Главная страница</h1>
+<section class="hw-section" style="text-align: center;">
+    <div class="main-page-container">
+        <a href="." class="title-link">
+            <h1 class="main-page-title">Главная</h1>
+        </a>
+        <div class="animated-underline"></div>
+    </div>
+</section>
 
         <div class="main-links">
-            <a href="/duck/">🦆 Рандомная утка</a>
-            <a href="/fox/">🦊 Лиса API (Курама)</a>
-            <a href="/weather-minsk/">🌤 Погода в Минске</a>
+            <a href="/duck" class="glass-button">🦆 Рандомная утка</a>
+            <a href="/fox" class="glass-button">🦊 Лиса API (Курама)</a>
+            <a href="/weather-minsk" class="glass-button">☁️ Погода в Минске</a>
+        </div>
 
-            <div class="cities">
-                <a href="/weather/Moscow/">🌍 Москва</a>
-                <a href="/weather/Paris/">🌍 Париж</a>
-                <a href="/weather/Rome/">🌍 Рим</a>
-                <a href="/weather/Rio/">🌍 Рио</a>
-                <a href="/weather/Tokyo/">🌍 Токио</a>
-            </div>
+        <div class="cities">
+            <a href="/weather/moscow" class="glass-button">🌍Москва</a>
+            <a href="/weather/paris" class="glass-button">🌍Париж</a>
+            <a href="/weather/rome" class="glass-button">🌍Рим</a>
+            <a href="/weather/rio" class="glass-button">🌍Рио</a>
+            <a href="/weather/tokyo" class="glass-button">🌍Токио</a>
+            <a href="/homework5" class="glass-button">📚 Домашнее задание №5</a>
+            <a href="/homework6" class="glass-button">📚 Домашнее задание №6</a>
         </div>
     </div>
-
 </div>
+{% endblock %}
 
-</body>
-</html>

@@ -1,22 +1,35 @@
 
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Утка</title>
+{% extends "base.html" %}
 
-     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+{% block content %}
+<div class="page-bg">
+    <div class="main-glass" style="text-align: center;">
+        <h1>🦆 Рандомная утка</h1>
 
-<h1>Рандомная утка</h1>
+        <div style="margin: 20px 0;">
+            <img src="{{ image_url }}" alt="Утка" class="duck-img">
+        </div>
 
-<img src="{{ image_url }}" alt="Утка" width="400">
-
-<div style="margin-top: 20px;">
-    <a href="/" class="glass-button">Назад на главную</a>
+        <div class="main-links" style="justify-content: center;">
+            <a href="/duck" class="glass-button">🔄 Другая утка</a>
+            <a href="/" class="glass-button">🏠 На главную</a>
+        </div>
+    </div>
 </div>
 
-</body>
-</html>
+<style>
+    .duck-img {
+        width: 100%;
+        max-width: 450px;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        transition: transform 0.3s ease;
+    }
+
+    .duck-img:hover {
+        transform: scale(1.02); /* Легкое увеличение при наведении */
+    }
+</style>
+{% endblock %}

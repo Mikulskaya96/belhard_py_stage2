@@ -37,6 +37,64 @@ body {
     font-size: 36px;
 }
 
+/* ===== ГЛАВНАЯ СТРАНИЦА ТЕКСТ===== */
+/* Убираем стандартное оформление ссылки */
+.title-link {
+    text-decoration: none;
+    outline: none;
+}
+
+.main-page-container {
+    padding: 20px 0;
+    cursor: pointer;
+}
+
+.main-page-title {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 3.5em;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    /* Черный цвет с прозрачностью, как в Joy of TeX */
+    color: rgba(0, 0, 0, 0.4);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin: 0;
+}
+
+/* Эффект при наведении */
+.main-page-container:hover .main-page-title {
+    color: rgba(0, 0, 0, 0.9);
+    transform: scale(1.08) translateY(-5px);
+    letter-spacing: 12px;
+    /* Наше фирменное розовое свечение */
+    text-shadow:
+        0 0 15px rgba(255, 182, 193, 0.7),
+        0 0 30px rgba(255, 182, 193, 0.3);
+}
+
+/* Линия под заголовком */
+.animated-underline {
+    width: 40px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    margin: 10px auto;
+    border-radius: 2px;
+    transition: all 0.5s ease;
+}
+
+.main-page-container:hover .animated-underline {
+    width: 180px;
+    background: #ffb6c1; /* Розовый при наведении */
+    box-shadow: 0 0 15px #ffb6c1;
+}
+
+/* Эффект "нажатия" */
+.main-page-container:active {
+    transform: scale(0.95);
+    transition: 0.1s;
+}
+
+
+
 /* ===== Ссылки ===== */
 .main-links {
     display: flex;
@@ -221,3 +279,600 @@ body {
 .container {
     margin-top: 0;
 }
+
+/* Добавили только новое, старое не меняя */
+.auth-new {
+    margin-left: 15px; /* Отступ от кнопки Погода */
+    background: rgba(255, 255, 255, 0.3) !important; /* Чуть светлее */
+}
+
+.logout-new {
+    margin-left: 15px;
+    background: rgba(255, 150, 150, 0.2) !important; /* Слегка розовый для выхода */
+}
+
+.footer {
+    margin-top: 50px; /* Отступ от контента */
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: inline-block;
+    padding: 10px 30px !important; /* Узкая полоска */
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+
+/* Заголовок в начале homework №5 */
+.header-content {
+    text-align: center;
+    padding: 40px 0;
+    perspective: 1000px;
+}
+
+.main-title {
+    font-size: 4em;
+    font-family: 'Arial Black', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    color: rgba(255, 255, 255, 0.1); /* Полупрозрачный в покое */
+    margin: 0;
+    cursor: default;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+/* Эффект для номера задания */
+.number-glow {
+    color: #00d4ff;
+    transition: all 0.6s ease;
+}
+
+/* Оживление при наведении на заголовок */
+.main-title:hover {
+    color: #ffffff;
+    transform: scale(1.1) rotateX(10deg);
+    letter-spacing: 15px;
+    text-shadow:
+        0 0 10px rgba(255, 182, 193, 0.8),
+        0 0 20px rgba(255, 182, 193, 0.4),
+        0 0 40px rgba(255, 182, 193, 0.2);
+}
+
+.main-title:hover .number-glow {
+    color: #ffb6c1; /* Номер становится розовым */
+    text-shadow: 0 0 15px #ffb6c1;
+}
+
+/* Анимированная линия под заголовком */
+.title-underline {
+    width: 50px;
+    height: 4px;
+    background: #00d4ff;
+    margin: 10px auto;
+    border-radius: 2px;
+    transition: all 0.5s ease;
+}
+
+.header-content:hover .title-underline {
+    width: 200px;
+    background: #ffb6c1;
+    box-shadow: 0 0 15px #ffb6c1;
+}
+
+
+
+/* ГОД,ВРЕМЯ,НЕДЕЛЯ,ДЕНЬ */
+.info-widget {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 25px;
+    max-width: 500px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.widget-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+.city-tag {
+    color: #00d4ff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9em;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8em;
+    text-transform: lowercase;
+    margin-bottom: 5px;
+}
+
+.value {
+    color: #ffffff;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Эффект оживления */
+.info-widget:hover {
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(255, 182, 193, 0.1);
+    border-color: rgba(255, 182, 193, 0.4);
+    box-shadow: 0 20px 40px rgba(255, 182, 193, 0.2);
+}
+
+.info-widget:hover .city-tag {
+    color: #ffb6c1;
+    text-shadow: 0 0 10px rgba(255, 182, 193, 0.8);
+}
+
+.info-widget:hover .value {
+    color: #ffb6c1;
+}
+
+/* КАРТА ПРОШОЖДЕНИЕ*/
+.hw-section img:hover {
+    transform: scale(1.02);
+    transition: 0.3s;
+}
+
+.tex-container {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 48px; /* Размер как по заданию */
+    background-color: #fdf5e6; /* Кремовый фон как на фото */
+    padding: 20px 40px;
+    display: inline-block;
+    color: #333;
+}
+
+
+
+/* ТЕКСТ Joy of TEx*/
+.joy-of-tex-container {
+    display: flex;
+    justify-content: center; /* Центрируем, если нужно, или  можно убрать в лево  */
+    padding: 30px;
+    margin: 20px 0;
+    background: rgba(255, 255, 255, 0.03); /* Очень прозрачный фон */
+    backdrop-filter: blur(10px); /* Сильное размытие заднего плана */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+}
+
+.joy-of-tex-text {
+    font-family: "Times New Roman", serif;
+    font-size: 3.5em;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2); /* По умолчанию очень прозрачный текст */
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    transition: all 0.6s ease;
+    cursor: pointer;
+    margin: 0;
+}
+
+/* Специфическое оформление TeX */
+.tex-logo sub {
+    font-size: 0.6em;
+    vertical-align: -0.4em;
+    margin-left: -0.1em;
+    margin-right: -0.1em;
+}
+
+/* Эффект оживления при наведении */
+.joy-of-tex-container:hover {
+    background: rgba(255, 182, 193, 0.1); /* Твой нежно-розовый оттенок */
+    border-color: rgba(255, 182, 193, 0.3);
+    box-shadow: 0 0 40px rgba(255, 182, 193, 0.2);
+    transform: scale(1.02);
+}
+
+.joy-of-tex-container:hover .joy-of-tex-text {
+    color: #ffffff; /* Текст становится четким */
+    text-shadow:
+        0 0 10px rgba(255, 182, 193, 0.8),
+        0 0 20px rgba(255, 182, 193, 0.4);
+    letter-spacing: 8px; /* Буквы немного раздвигаются ("дышат") */
+}
+
+
+
+/* ГЕНЕРАТОР */
+/* Основной список */
+.gen-main-list {
+    list-style: none;
+    padding-left: 0;
+    color: white;
+}
+
+/* Стили для основных категорий (Цвета, Фавиконы и т.д.) */
+.gen-main-list > li {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid #00d4ff;
+    border-radius: 0 10px 10px 0;
+    transition: all 0.3s ease;
+}
+
+.gen-main-list > li:hover {
+    background: rgba(255, 182, 193, 0.1);
+    border-left-color: #ffb6c1; /* Твой розовый */
+    transform: translateX(10px);
+}
+
+.gen-main-list span {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #00d4ff;
+    transition: 0.3s;
+}
+
+.gen-main-list li:hover > span {
+    color: #ffb6c1;
+}
+
+/* Вложенные списки */
+.gen-main-list ul, .gen-main-list ol {
+    margin-top: 5px;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.gen-main-list li:hover ul, .gen-main-list li:hover ol {
+    opacity: 1;
+}
+
+/* Стили для Скачать и Демо */
+.action-sublist {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.link-download {
+    color: #ff8c00; /* Оранжевый для "Скачать" */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: 0.3s;
+}
+
+.link-demo {
+    color: #32cd32; /* Салатовый для "Демо" */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: 0.3s;
+}
+
+.link-download:hover, .link-demo:hover {
+    color: #ffb6c1; /* При наведении оба становятся розовыми */
+    text-shadow: 0 0 8px rgba(255, 182, 193, 0.8);
+}
+
+
+
+/* Основной список */
+.gen-main-list {
+    list-style-type: disc; /* Точки для первого уровня */
+    line-height: 1.6;
+    color: white;
+    text-align: left;
+}
+
+/* Вложенные списки с цветами и фонами */
+.gen-main-list ul {
+    list-style-type: circle; /* Кружочки для второго уровня */
+    margin-left: 25px;
+}
+
+/* Нумерованные списки (Фавиконы, Изображения) */
+.gen-main-list ol {
+    list-style-type: decimal; /* Цифры 1, 2, 3... */
+    margin-left: 25px;
+}
+
+/* Списки третьего уровня (Скачать/Демо) */
+.gen-main-list ol ul {
+    list-style-type: square; /* Квадратики для глубоких вложений */
+    margin-left: 20px;
+}
+
+.hw-section h2 {
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    padding-bottom: 5px;
+}
+
+/* Контейнер, который ставит элементы в одну строку */
+.headers-row {
+    display: flex;         /* Включаем Flexbox */
+    align-items: baseline; /* Выравниваем по нижней линии текста */
+    gap: 20px;            /* Расстояние между заголовками */
+    margin-bottom: 20px;
+}
+
+/* Стили прозрачности */
+.fade-h1 { opacity: 1; margin: 0; }
+.fade-h2 { opacity: 0.7; margin: 0; }
+.fade-h3 { opacity: 0.4; margin: 0; }
+
+/* Эффект при наведении */
+.headers-row h1, .headers-row h2, .headers-row h3 {
+    transition: opacity 0.3s ease;
+    cursor: default;
+}
+
+.headers-row h1:hover, .headers-row h2:hover, .headers-row h3:hover {
+    opacity: 1;
+}
+
+.fade-headers {
+    display: flex;
+    flex-direction: column; /* Располагаем строго друг под другом */
+    align-items: flex-start; /* Прижимаем всё к левому краю */
+}
+
+
+
+
+/* ЗАГОЛОВОК ПЕРВОГО,ВТОРОГО,ТРЕТЬЕГО УРОВНЯ */    /*  */
+/* Общие настройки для оживления заголовков */
+.level-1, .level-2, .level-3 {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    display: block; /* Чтобы отступы и трансформации работали корректно */
+}
+/* Первый — самый левый и яркий */
+.level-1 {
+    opacity: 0.9;
+    margin-left: 0;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+.level-1:hover {
+    opacity: 1;
+    transform: translateX(10px);
+    color: #ffb6c1; /* Твой розовый */
+    text-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
+}
+/* Второй — чуть правее и прозрачнее */
+.level-2 {
+    opacity: 0.6;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.level-2:hover {
+    opacity: 0.9;
+    transform: translateX(10px);
+    color: #ffb6c1;
+    text-shadow: 0 0 12px rgba(255, 182, 193, 0.5);
+}
+/* Третий — еще правее и самый прозрачный */
+.level-3 {
+    opacity: 0.3;
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+.level-3:hover {
+    opacity: 0.8;
+    transform: translateX(10px);
+    color: #ffb6c1;
+    text-shadow: 0 0 10px rgba(255, 182, 193, 0.4);
+}
+/* Оживляем ссылку */
+.main-page-link {
+    display: inline-block;
+    color: #00d4ff;
+    text-decoration: none;
+    border-bottom: 1px dashed #00d4ff;
+    transition: all 0.3s ease;
+    margin-left: 0;
+}
+.main-page-link:hover {
+    color: #ffb6c1;
+    border-bottom: 1px solid #ffb6c1;
+    transform: scale(1.05);
+    text-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
+}
+
+ /*  */
+
+
+
+
+/* ХИМИЧЕСКИЕ ЭЛЕМЕНТЫ:*/
+.chemistry-table {
+    width: 100%;
+    max-width: 400px; /* Чтобы таблица не растягивалась на весь экран */
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.05); /* Легкий "стеклянный" фон */
+}
+
+.chemistry-table th, .chemistry-table td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+.chemistry-table th {
+    background: rgba(0, 212, 255, 0.2); /* Выделяем шапку голубоватым цветом */
+    font-weight: bold;
+}
+
+.element-symbol {
+    font-weight: bold;
+    color: #00d4ff; /* Подсвечиваем химический символ */
+}
+
+/* Эффект при наведении на строку */
+.chemistry-table tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+/* таблица драгоценный камней */
+.animated-table {
+    width: 100%;
+    max-width: 600px;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Плавная пружинистая анимация */
+    cursor: default;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.animated-table th, .animated-table td {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.animated-table th {
+    background: rgba(0, 212, 255, 0.3);
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+/* Эффект при наведении на ВСЮ таблицу */
+.animated-table:hover {
+    transform: translateY(-5px) scale(1.02); /* Таблица приподнимается и чуть увеличивается */
+    box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2); /* Появляется мягкое голубое свечение */
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Эффект при наведении на конкретную СТРОКУ */
+.animated-table tr:hover td {
+    background: rgba(0, 212, 255, 0.15);
+    color: #00d4ff;
+    transition: 0.2s;
+}
+
+/* Стиль для формул */
+sub {
+    font-size: 0.7em;
+    color: #ffd700; /* Делаем цифры в формулах золотистыми для красоты */
+}
+
+
+
+
+
+/* таблица добыча камней по городам */
+/* Эффект для ячеек с данными при наведении на строку */
+.animated-table tr:hover .data-cell {
+    color: #ffd700; /* Числа становятся золотистыми при наведении на строку */
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    transition: 0.3s;
+}
+
+/* Названия камней в первом столбце */
+.row-label {
+    text-align: left !important;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* Общий стиль анимации  */
+.animated-table {
+    width: 100%;
+    max-width: 500px;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    margin-bottom: 30px;
+}
+
+.animated-table:hover {
+    transform: scale(1.02) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 212, 255, 0.25);
+}
+
+
+
+
+
+/* Архив добычи */
+.animated-table {
+    width: 100%;
+    max-width: 500px;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    margin-bottom: 30px;
+    margin-left: 0; /* Прижимаем к левому краю, как заголовки */
+}
+
+.animated-table th, .animated-table td {
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: #fff;
+}
+
+.animated-table th {
+    background: rgba(0, 212, 255, 0.25);
+    font-weight: 600;
+}
+
+.row-label {
+    text-align: left !important;
+    font-weight: bold;
+    color: #ffd700; /* Золотистый для названий */
+}
+
+.new-value {
+    color: #00ffcc; /* Подсветка новых данных */
+    font-weight: bold;
+}
+
+/* Оживление при наведении */
+.animated-table:hover {
+    transform: scale(1.03) translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.animated-table tr:hover td {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #00d4ff;
+}
+

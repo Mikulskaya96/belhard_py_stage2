@@ -1,0 +1,328 @@
+
+{% extends "base_hw6.html" %}
+
+{% block title %}Homework 6 - Интерактивная Сетка{% endblock %}
+
+{% block header %}
+    <div class="header-content">
+        <h1 class="main-title">Homework <span class="number-glow">№6</span></h1>
+        <div class="title-underline"></div>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="sidebar-sticky">
+        <h3 class="level-1">Навигация</h3>
+        <a href="/" class="glass-button" style="display: block; margin-bottom: 20px; text-align: center;">Главная</a>
+
+        <hr style="border: 0.5px solid rgba(255,255,255,0.1); margin: 20px 0;">
+
+        <h3 class="level-2">Разделы</h3>
+        <ul class="gen-main-list" style="list-style: none; padding: 0;">
+            <li><a href="#tables" class="main-page-link">Таблицы камней</a></li>
+            <li><a href="#poetry" class="main-page-link">Галерея стихов</a></li>
+            <li><a href="#generators" class="main-page-link">Генераторы</a></li>
+            <li><a href="#elements" class="main-page-link">Химия</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="main-glass">
+    <main>
+        <section class="hw-section">
+            <div class="joy-of-tex-container">
+                <h1 class="joy-of-tex-text">Joy of <span class="tex-logo">T<sub>e</sub>X</span></h1>
+            </div>
+        </section>
+
+        <section class="hw-section">
+            <div class="info-widget">
+                <div class="widget-header">
+                    <span class="city-tag">Кальяри, Италия</span>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item"><span class="label">Неделя</span><span class="value">06 неделя, 2026</span></div>
+                    <div class="info-item"><span class="label">Дата и время</span><span class="value">05.02.2026 15:23</span></div>
+                    <div class="info-item"><span class="label">Месяц</span><span class="value">Февраль 2026</span></div>
+                    <div class="info-item"><span class="label">Время</span><span class="value">15:23</span></div>
+                </div>
+            </div>
+        </section>
+
+        <h2 id="poetry" class="level-1" style="margin-top: 40px;">Поэтическая пауза</h2>
+
+        <section class="hw-section">
+            <h2 style="font-size: 1.1em; opacity: 0.8;">Стихотворение по заданию</h2>
+            <div class="poem-container">
+                <pre class="alive-poem">
+Мириады маленьких дел
+Пьют по капле гаснущий день,
+А дела большие сушит жажда.
+Оставляя все на "потом",
+Прозреваем задним числом,
+Только день НЕ ПОВТОРИТСЯ  дважды.</pre>
+                <p class="author"><i>— И. Тальков</i></p>
+            </div>
+        </section>
+
+        <section class="hw-section">
+            <h2 style="font-size: 1.1em; opacity: 0.8;">Классика</h2>
+            <div class="poem-container">
+                <pre class="alive-poem pushkin">
+Я помню чудное мгновенье:
+Передо мной явилась ты,
+Как мимолетное виденье,
+Как гений чистой красоты.</pre>
+                <p class="author"><i>— Александр Пушкин</i></p>
+            </div>
+        </section>
+
+        <section class="hw-section">
+            <h2 style="font-size: 1.1em; opacity: 0.8;">Есенин</h2>
+            <div class="poem-container">
+                <pre class="alive-poem esenin">
+Не жалею, не зову, не плачу,
+Все пройдет, как с белых яблонь дым.
+Увяданья золотом охваченный,
+Я не буду больше молодым.</pre>
+                <p class="author"><i>— Сергей Есенин</i></p>
+            </div>
+        </section>
+
+                <section class="hw-section">
+    <h3>Характеристики драгоценных камней</h3>
+    <table class="animated-table">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Цвет</th>
+                <th>Твердость</th>
+                <th>Формула</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Алмаз</td>
+                <td>Белый</td>
+                <td>10</td>
+                <td>C</td>
+            </tr>
+            <tr>
+                <td>Рубин</td>
+                <td>Красный</td>
+                <td>9</td>
+                <td>Al<sub>2</sub>O<sub>3</sub></td>
+            </tr>
+            <tr>
+                <td>Аметист</td>
+                <td>Голубой</td>
+                <td>7</td>
+                <td>SiO<sub>2</sub></td>
+            </tr>
+            <tr>
+                <td>Изумруд</td>
+                <td>Зеленый</td>
+                <td>8</td>
+                <td>Be<sub>3</sub>Al<sub>2</sub>(SiO<sub>3</sub>)<sub>6</sub></td>
+            </tr>
+            <tr>
+                <td>Сапфир</td>
+                <td>Голубой</td>
+                <td>9</td>
+                <td>Al<sub>2</sub>O<sub>3</sub></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+         <section class="hw-section">
+    <h3>Добыча камней по годам</h3>
+    <table class="animated-table">
+        <thead>
+            <tr>
+                <th>Камень</th>
+                <th>2004</th>
+                <th>2005</th>
+                <th>2006</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="row-label">Рубины</td>
+                <td class="data-cell">43</td>
+                <td class="data-cell">51</td>
+                <td class="data-cell">79</td>
+            </tr>
+            <tr>
+                <td class="row-label">Изумруды</td>
+                <td class="data-cell">28</td>
+                <td class="data-cell">34</td>
+                <td class="data-cell">48</td>
+            </tr>
+            <tr>
+                <td class="row-label">Сапфиры</td>
+                <td class="data-cell">29</td>
+                <td class="data-cell">57</td>
+                <td class="data-cell">36</td>
+            </tr>
+            <tr>
+                <td class="row-label">Аметисты</td>
+                <td class="data-cell">23</td>
+                <td class="data-cell">64</td>
+                <td class="data-cell">97</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section class="hw-section">
+    <h3>Архив добычи (2010-2014) — Полные данные</h3>
+    <table class="animated-table">
+        <thead>
+            <tr>
+                <th>Тип камня</th>
+                <th>2010</th>
+                <th>2012</th>
+                <th>2014</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="row-label">Сапфиры</td>
+                <td>1483</td>
+                <td>4532</td>
+                <td>6743</td>
+            </tr>
+            <tr>
+                <td class="row-label">Рубины</td>
+                <td>3835</td>
+                <td>7482</td>
+                <td class="new-value">8120</td> </tr>
+            <tr>
+                <td class="row-label">Алмазы</td>
+                <td>683</td>
+                <td>238</td>
+                <td class="new-value">145</td> </tr>
+        </tbody>
+    </table>
+</section>
+
+  <section class="hw-section">
+    <h2 class="level-1">Генераторы</h2>
+    <ul class="gen-main-list">
+        <li><span>Цвета</span>
+            <ul>
+                <li>Color Mixers</li>
+                <li>Color Tester</li>
+                <li>Color Pallete</li>
+            </ul>
+        </li>
+        <li><span>Фавиконы</span>
+            <ol>
+                <li>Favicon.cc
+                    <ul class="action-sublist">
+                        <li><a href="#" class="link-download">Скачать</a></li>
+                        <li><a href="#" class="link-demo">Демо</a></li>
+                    </ul>
+                </li>
+                <li>WebLab Favicon</li>
+            </ol>
+        </li>
+        <li><span>Фоны</span>
+            <ul>
+                <li>BgMaker</li>
+                <li>StripeGenerator</li>
+            </ul>
+        </li>
+        <li><span>Изображения</span>
+            <ol>
+                <li>Buttonator</li>
+                <li>AjaxLoad</li>
+            </ol>
+        </li>
+    </ul>
+</section>
+
+</section>
+<section class="hw-section">
+    <div class="fade-headers">
+        <h1 class="level-1">Заголовок первого уровня</h1>
+        <h2 class="level-2">Заголовок второго уровня</h2>
+        <h3 class="level-3">Заголовок третьего уровня</h3>
+    </div>
+
+    <p>
+        Ссылка:
+        <a href="/" class="main-page-link">ведущая на главную страницу</a>
+    </p>
+</section>
+
+
+
+
+               <section class="hw-section">
+    <h3>Химические элементы</h3>
+    <table class="chemistry-table">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Элемент</th>
+                <th>Символ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Водород</td>
+                <td class="element-symbol">H</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Гелий</td>
+                <td class="element-symbol">He</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Литий</td>
+                <td class="element-symbol">Li</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Бериллий</td>
+                <td class="element-symbol">Be</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Бор</td>
+                <td class="element-symbol">B</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+        <section class="hw-section">
+            <h2>Карта выполнения</h2>
+            <img src="https://img.freepik.com/premium-vector/map-treasures-paper-parchment_8071-3421.jpg"
+                 alt="Карта сокровищ"
+                 style="width:100%; max-width:500px; border-radius: 15px; border: 3px solid #8b4513; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+
+            <div class="progress-container" style="margin-top: 20px;">
+                <p style="font-size: 1.2em; color: #ffd700;">
+                    <strong>Уровень прохождения 11 задания: 90%</strong>
+                </p>
+                <progress value="90" max="100" style="width:100%; height:30px;"></progress>
+            </div>
+        </section>
+    </main>
+</div>
+
+<style>
+    .sidebar-sticky { position: sticky; top: 20px; }
+    .main-glass { animation: fadeIn 1s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Твои базовые стили секций */
+    .hw-section { margin-bottom: 30px; padding: 20px; background: rgba(255, 255, 255, 0.03); border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+    .hw-section:hover { background: rgba(255, 255, 255, 0.07); border-color: rgba(255, 182, 193, 0.2); }
+</style>
+{% endblock %}

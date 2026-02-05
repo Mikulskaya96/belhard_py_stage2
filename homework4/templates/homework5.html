@@ -1,0 +1,518 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-bg">
+    <div class="main-glass">
+
+        <header>
+            <nav>
+                <a href="/" class="glass-button">Главная</a>
+                <div style="float: right;">
+
+                </div>
+         </nav>
+    <div class="header-content">
+        <h1 class="main-title">Homework <span class="number-glow">№5</span></h1>
+        <div class="title-underline"></div>
+    </div>
+</header>
+
+        <main>
+
+   <section class="hw-section">
+    <div class="joy-of-tex-container">
+        <h1 class="joy-of-tex-text">Joy of <span class="tex-logo">T<sub>e</sub>X</span></h1>
+    </div>
+</section>
+
+            <section class="hw-section">
+    <div class="info-widget">
+        <div class="widget-header">
+            <span class="city-tag">Кальяри, Италия</span>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <span class="label">Неделя</span>
+                <span class="value">06 неделя, 2026</span>
+            </div>
+
+            <div class="info-item">
+                <span class="label">Дата и время</span>
+                <span class="value">04.02.2026 21:33</span>
+            </div>
+
+            <div class="info-item">
+                <span class="label">Месяц</span>
+                <span class="value">Февраль 2026</span>
+            </div>
+
+            <div class="info-item">
+                <span class="label">Время</span>
+                <span class="value" id="live-clock">21:33</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+   <section class="hw-section">
+    <h2 style="font-size: 1.1em; opacity: 0.8;">Стихотворение по заданию</h2>
+
+    <div class="poem-container">
+        <pre class="alive-poem">
+Мириады маленьких дел
+Пьют по капле гаснущий день,
+А дела большие сушит жажда.
+Оставляя все на "потом",
+Прозреваем задним числом,
+Только день НЕ ПОВТОРИТСЯ  дважды.
+        </pre>
+        <p class="author"><i>— И. Тальков</i></p>
+    </div>
+</section>
+
+<style>
+/* Используем те же классы, что и для Рождественского, чтобы сохранить единый стиль */
+.poem-container {
+    transition: all 0.5s ease;
+    margin-bottom: 25px;
+}
+
+.alive-poem {
+    font-size: 0.9em;
+    line-height: 1.3;
+    font-family: 'Times New Roman', serif;
+    background: rgba(255, 255, 255, 0.05); /* Прозрачный фон */
+    padding: 18px;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    border-left: 4px solid #00d4ff; /* Голубая полоска по умолчанию */
+    transition: all 0.4s ease;
+    backdrop-filter: blur(4px); /* Размытие заднего фона (эффект стекла) */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Оживление при наведении — переход в нежно-розовый */
+.poem-container:hover .alive-poem {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+    border-left: 4px solid #ffb6c1; /* Твой любимый нежно-розовый */
+    transform: translateY(-7px) scale(1.01); /* Всплытие */
+    box-shadow: 0 12px 25px rgba(255, 182, 193, 0.3); /* Розовое свечение */
+}
+
+.author {
+    margin-top: 8px;
+    font-size: 0.9em;
+    opacity: 0.5;
+    transition: 0.4s;
+    text-align: left;
+}
+
+.poem-container:hover .author {
+    opacity: 1;
+    color: #ffb6c1;
+    transform: translateX(5px);
+}
+</style>
+
+
+<section class="hw-section">
+    <h2 style="font-size: 1.1em; opacity: 0.8;">Классика</h2>
+
+    <div class="poem-container">
+        <pre class="alive-poem pushkin">
+Я помню чудное мгновенье:
+Передо мной явилась ты,
+Как мимолетное виденье,
+Как гений чистой красоты.
+        </pre>
+        <p class="author"><i>— Александр Пушкин</i></p>
+    </div>
+</section>
+
+<style>
+/* Используем те же стили, что и раньше, но с небольшим акцентом */
+.poem-container {
+    transition: all 0.5s ease;
+    margin-bottom: 25px;
+}
+
+.alive-poem.pushkin {
+    font-size: 1em; /* Для Пушкина сделаем шрифт чуть крупнее и благороднее */
+    line-height: 1.5;
+    font-family: 'Georgia', serif; /* Более классический шрифт */
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    border-left: 4px solid #00d4ff;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Эффект оживления — нежно-розовая аура */
+.poem-container:hover .alive-poem.pushkin {
+    color: #ffffff;
+    background: rgba(255, 182, 193, 0.1); /* Легкий розовый оттенок фона */
+    border-left: 4px solid #ffb6c1;
+    transform: translateY(-8px) rotateZ(1deg); /* Небольшой поворот для "живости" */
+    box-shadow: 0 15px 30px rgba(255, 182, 193, 0.4);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.poem-container:hover .author {
+    color: #ffb6c1;
+    opacity: 1;
+    transform: scale(1.1);
+}
+</style>
+
+
+<section class="hw-section">
+    <h2 style="font-size: 1.1em; opacity: 0.8;">Есенин</h2>
+
+    <div class="poem-container">
+        <pre class="alive-poem esenin">
+Не жалею, не зову, не плачу,
+Все пройдет, как с белых яблонь дым.
+Увяданья золотом охваченный,
+Я не буду больше молодым.
+        </pre>
+        <p class="author"><i>— Сергей Есенин</i></p>
+    </div>
+</section>
+
+<style>
+/* Используем общие классы для сохранения розового свечения */
+.poem-container {
+    transition: all 0.5s ease;
+    margin-bottom: 25px;
+}
+
+.alive-poem.esenin {
+    font-size: 0.95em;
+    line-height: 1.5;
+    font-family: 'Verdana', sans-serif; /* Чуть более современный, но мягкий шрифт */
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    border-left: 4px solid #00d4ff;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Оживление: нежно-розовый + золотистый отблеск */
+.poem-container:hover .alive-poem.esenin {
+    color: #ffffff;
+    background: rgba(255, 182, 193, 0.15);
+    border-left: 4px solid #ffb6c1; /* Твой розовый цвет */
+    transform: scale(1.03) translateY(-10px); /* Всплывает выше остальных */
+    box-shadow: 0 20px 40px rgba(255, 182, 193, 0.3), 0 0 15px rgba(255, 215, 0, 0.2);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.poem-container:hover .author {
+    color: #ffd700; /* Имя автора станет золотистым при наведении */
+    opacity: 1;
+    transform: translateX(15px);
+}
+</style>
+
+
+<section class="hw-section">
+    <h2 style="font-size: 1.1em; opacity: 0.8;">Р. Рождественский (отрывок)</h2>
+
+    <div class="poem-container">
+        <pre class="alive-poem human-needs">
+Человеку надо мало:
+чтоб искал
+и находил.
+Чтоб имелось для начала
+Друг — один
+и враг — один…
+        </pre>
+        <p class="author"><i>— Роберт Рождественский</i></p>
+    </div>
+</section>
+
+<style>
+/* Используем твои настройки анимации */
+.poem-container {
+    transition: all 0.5s ease;
+    margin-bottom: 25px;
+}
+
+.alive-poem.human-needs {
+    font-size: 0.9em;
+    line-height: 1.4;
+    font-family: 'Times New Roman', serif;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    border-left: 4px solid #00d4ff; /* Голубой в покое */
+    transition: all 0.4s ease;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Оживление в нежно-розовый */
+.poem-container:hover .alive-poem.human-needs {
+    color: #ffffff;
+    background: rgba(255, 182, 193, 0.1); /* Тот самый нежный розовый */
+    border-left: 4px solid #ffb6c1; /* Розовая полоска при наведении */
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(255, 182, 193, 0.3); /* Розовое свечение */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.poem-container:hover .author {
+    color: #ffb6c1; /* Автор тоже розовеет */
+    opacity: 1;
+    transform: translateX(10px);
+}
+</style>
+
+           <section class="hw-section">
+    <h3>Характеристики драгоценных камней</h3>
+    <table class="animated-table">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Цвет</th>
+                <th>Твердость</th>
+                <th>Формула</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Алмаз</td>
+                <td>Белый</td>
+                <td>10</td>
+                <td>C</td>
+            </tr>
+            <tr>
+                <td>Рубин</td>
+                <td>Красный</td>
+                <td>9</td>
+                <td>Al<sub>2</sub>O<sub>3</sub></td>
+            </tr>
+            <tr>
+                <td>Аметист</td>
+                <td>Голубой</td>
+                <td>7</td>
+                <td>SiO<sub>2</sub></td>
+            </tr>
+            <tr>
+                <td>Изумруд</td>
+                <td>Зеленый</td>
+                <td>8</td>
+                <td>Be<sub>3</sub>Al<sub>2</sub>(SiO<sub>3</sub>)<sub>6</sub></td>
+            </tr>
+            <tr>
+                <td>Сапфир</td>
+                <td>Голубой</td>
+                <td>9</td>
+                <td>Al<sub>2</sub>O<sub>3</sub></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+         <section class="hw-section">
+    <h3>Добыча камней по годам</h3>
+    <table class="animated-table">
+        <thead>
+            <tr>
+                <th>Камень</th>
+                <th>2004</th>
+                <th>2005</th>
+                <th>2006</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="row-label">Рубины</td>
+                <td class="data-cell">43</td>
+                <td class="data-cell">51</td>
+                <td class="data-cell">79</td>
+            </tr>
+            <tr>
+                <td class="row-label">Изумруды</td>
+                <td class="data-cell">28</td>
+                <td class="data-cell">34</td>
+                <td class="data-cell">48</td>
+            </tr>
+            <tr>
+                <td class="row-label">Сапфиры</td>
+                <td class="data-cell">29</td>
+                <td class="data-cell">57</td>
+                <td class="data-cell">36</td>
+            </tr>
+            <tr>
+                <td class="row-label">Аметисты</td>
+                <td class="data-cell">23</td>
+                <td class="data-cell">64</td>
+                <td class="data-cell">97</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section class="hw-section">
+    <h3>Архив добычи (2010-2014) — Полные данные</h3>
+    <table class="animated-table">
+        <thead>
+            <tr>
+                <th>Тип камня</th>
+                <th>2010</th>
+                <th>2012</th>
+                <th>2014</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="row-label">Сапфиры</td>
+                <td>1483</td>
+                <td>4532</td>
+                <td>6743</td>
+            </tr>
+            <tr>
+                <td class="row-label">Рубины</td>
+                <td>3835</td>
+                <td>7482</td>
+                <td class="new-value">8120</td> </tr>
+            <tr>
+                <td class="row-label">Алмазы</td>
+                <td>683</td>
+                <td>238</td>
+                <td class="new-value">145</td> </tr>
+        </tbody>
+    </table>
+</section>
+
+  <section class="hw-section">
+    <h2 class="level-1">Генераторы</h2>
+    <ul class="gen-main-list">
+        <li><span>Цвета</span>
+            <ul>
+                <li>Color Mixers</li>
+                <li>Color Tester</li>
+                <li>Color Pallete</li>
+            </ul>
+        </li>
+        <li><span>Фавиконы</span>
+            <ol>
+                <li>Favicon.cc
+                    <ul class="action-sublist">
+                        <li><a href="#" class="link-download">Скачать</a></li>
+                        <li><a href="#" class="link-demo">Демо</a></li>
+                    </ul>
+                </li>
+                <li>WebLab Favicon</li>
+            </ol>
+        </li>
+        <li><span>Фоны</span>
+            <ul>
+                <li>BgMaker</li>
+                <li>StripeGenerator</li>
+            </ul>
+        </li>
+        <li><span>Изображения</span>
+            <ol>
+                <li>Buttonator</li>
+                <li>AjaxLoad</li>
+            </ol>
+        </li>
+    </ul>
+</section>
+
+</section>
+<section class="hw-section">
+    <div class="fade-headers">
+        <h1 class="level-1">Заголовок первого уровня</h1>
+        <h2 class="level-2">Заголовок второго уровня</h2>
+        <h3 class="level-3">Заголовок третьего уровня</h3>
+    </div>
+
+    <p>
+        Ссылка:
+        <a href="/" class="main-page-link">ведущая на главную страницу</a>
+    </p>
+</section>
+
+
+
+
+               <section class="hw-section">
+    <h3>Химические элементы</h3>
+    <table class="chemistry-table">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Элемент</th>
+                <th>Символ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Водород</td>
+                <td class="element-symbol">H</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Гелий</td>
+                <td class="element-symbol">He</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Литий</td>
+                <td class="element-symbol">Li</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Бериллий</td>
+                <td class="element-symbol">Be</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Бор</td>
+                <td class="element-symbol">B</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+           <section class="hw-section">
+                <h2>Карта выполнения</h2>
+                <img src="https://img.freepik.com/premium-vector/map-treasures-paper-parchment_8071-3421.jpg"
+                     alt="Карта сокровищ"
+                     style="width:100%; max-width:500px; border-radius: 15px; border: 3px solid #8b4513; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+
+                <div class="progress-container" style="margin-top: 20px;">
+                    <p style="font-size: 1.2em; color: #ffd700;">
+                        <strong>Уровень прохождения: 90%</strong>
+                    </p>
+                    <progress value="90" max="100" style="width:100%; height:30px;"></progress>
+                </div>
+            </section>
+        </main>
+
+        <footer id="floor">
+            <hr>
+            <p>Homework №5 | 2026</p>
+        </footer>
+
+    </div>
+</div>
+
+<style>
+    .hw-section { margin-bottom: 30px; padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
+    .hw-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+    .hw-table th, .hw-table td { padding: 10px; border: 1px solid rgba(255,255,255,0.3); text-align: center; }
+    pre { background: rgba(0,0,0,0.2); padding: 10px; border-left: 3px solid #00d4ff; }
+</style>
+{% endblock %}

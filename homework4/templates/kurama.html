@@ -1,23 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Курама</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <h1> Курама  </h1>
+{% extends "base.html" %}
 
-    <img src="{{ kurama_image }}" class="kurama">
-    <style>
-        .kurama {
-           width: 280px;
-        }
-    </style>
+{% block content %}
+<div class="page-bg">
+    <div class="main-glass" style="text-align: center;">
+        <h1>🦊 Курама</h1>
 
-  <div class="fox-actions">
-    <a href="/fox/" class="glass-button">Назад к лисам</a>
-    <a href="/" class="glass-button">На главную</a>
+        <div style="margin: 20px 0;">
+            <img src="{{ kurama_image }}" class="kurama-img">
+        </div>
+
+        <div class="main-links" style="flex-direction: row; justify-content: center; gap: 15px;">
+            <a href="/fox/" class="glass-button">Назад к лисам</a>
+            <a href="/" class="glass-button">На главную</a>
+        </div>
+    </div>
 </div>
-</body>
-</html>
+
+<style>
+    .kurama-img {
+        width: 100%;
+        max-width: 250px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+</style>
+{% endblock %}

@@ -1,47 +1,47 @@
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Лисы (API)</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% extends "base.html" %}
 
-    <style>
-        .fox-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .fox-container img {
-            width: 200px;
-            border-radius: 10px;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        .buttons a {
-            margin-right: 15px;
-            text-decoration: none;
-            color: blue;
-        }
-    </style>
-</head>
-<body>
+{% block content %}
+<div class="page-bg">
+    <div class="main-glass" style="max-width: 900px;"> <h1>🦊 Лисы ({{ count }} шт)</h1>
 
-<h1>Лисы ({{ count }} шт)</h1>
+        <div class="fox-container">
+            {% for fox in fox_images %}
+                <img src="{{ fox }}" alt="Лиса" class="fox-img">
+            {% endfor %}
+        </div>
 
-<div class="fox-container">
-    {% for fox in fox_images %}
-        <img src="{{ fox }}" alt="Лиса">
-    {% endfor %}
+        <div class="main-links" style="flex-direction: row; flex-wrap: wrap; justify-content: center; margin-top: 30px;">
+            <a href="/fox/10" class="glass-button">Показать 10 лис</a>
+            <a href="/fox/4" class="glass-button">Показать 4 лисы</a>
+            <a href="/kurama" class="glass-button">Показать Курама</a>
+            <a href="/" class="glass-button">На главную</a>
+        </div>
+    </div>
 </div>
 
-<div class="fox-actions">
-    <a href="/fox/10" class="glass-button">Показать 10 лис</a>
-    <a href="/fox/4" class="glass-button">Показать 4 лисы</a>
-    <a href="/kurama" class="glass-button">Показать Курама</a>
-    <a href="/" class="glass-button">На главную</a>
-</div>
+<style>
+    .fox-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 20px;
+    }
 
-</body>
-</html>
+    .fox-img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover; /* Чтобы картинки были одинакового размера и не сплющивались */
+        border-radius: 15px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+    }
+
+    .fox-img:hover {
+        transform: scale(1.05);
+        z-index: 10;
+    }
+</style>
+{% endblock %}

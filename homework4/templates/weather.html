@@ -1,25 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Погода в городах</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <h1>🌤 Погода в {{ weather.city }}</h1>
-    <img
-        src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png"
-        alt="Погода"
-    >
-    <p>🌡 Температура: {{ weather.temp }} °C</p>
-    <p>🤔 Ощущается как: {{ weather.feels }} °C</p>
-    <p>☁️ Описание: {{ weather.description }}</p>
-    <br>
+{% extends "base.html" %}
 
+{% block content %}
+<div class="page-bg">
+    <div class="main-glass">
+        <h1>🌤 Погода в {{ weather.city }}</h1>
 
-<div style="margin-top: 20px;">
-    <a href="/" class="glass-button" style="text-decoration: none; display: inline-block;">На главную</a>
+        <div style="text-align: center;">
+            <img
+                src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png"
+                alt="Погода"
+                style="background: rgba(255, 255, 255, 0.1); border-radius: 50%;"
+            >
+        </div>
+
+        <div class="main-links" style="text-align: left; margin-bottom: 20px;">
+            <p>🌡 Температура: {{ weather.temp }} °C</p>
+            <p>🤔 Ощущается как: {{ weather.feels }} °C</p>
+            <p>☁️ Описание: {{ weather.description }}</p>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <a href="/" class="glass-button">На главную</a>
+        </div>
+    </div>
 </div>
-
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Homework 6{% endblock %}</title>
+    <style>
+        /* Общая сетка для задания №6 */
+        .grid-wrapper {
+            display: grid;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+            grid-template-columns: 280px 1fr;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+            gap: 15px;
+            background: #0a0a0a; /* Темный фон вернется! */
+            color: white;
+            padding: 10px;
+            font-family: sans-serif;
+        }
+
+        /* Общие стили блоков с подписями */
+        .grid-header, .grid-sidebar, .grid-main, .grid-footer {
+            border: 1px dashed rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+        }
+
+        /* подписи элементов по заданию */
+        .grid-header::after { content: "Header (Шапка)"; position: absolute; top: 5px; right: 10px; font-size: 0.7em; color: #00d4ff; }
+        .grid-sidebar::after { content: "Sidebar (Боковая панель)"; position: absolute; top: 5px; right: 10px; font-size: 0.7em; color: #ffb6c1; }
+        .grid-main::after { content: "Main (Контент)"; position: absolute; top: 5px; right: 10px; font-size: 0.7em; color: #00ffcc; }
+        .grid-footer::after { content: "Footer (Подвал)"; position: absolute; top: 5px; right: 10px; font-size: 0.7em; color: #ffd700; }
+
+        .grid-header { grid-area: header; }
+        .grid-sidebar { grid-area: sidebar; }
+        .grid-main { grid-area: main; }
+        .grid-footer { grid-area: footer; text-align: center; }
+    </style>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_hw6.css') }}">
+</head>
+<body class="grid-wrapper"> <header class="grid-header">
+        {% block header %}{% endblock %}
+    </header>
+
+    <aside class="grid-sidebar">
+        {% block sidebar %}{% endblock %}
+    </aside>
+
+    <main class="grid-main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="grid-footer">
+        <p>© 2026 — Homework 6 — </p>
+    </footer>
+
+</body>
+</html>
