@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>{% block title %}Flask app{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 
 <body>
@@ -17,29 +16,29 @@
 
     <!-- шапка -->
     <header class="header">
-<nav class="main-nav">
-<nav class="main-nav">
-    <a href="/" class="glass-button">Главная</a>
-    <a href="/duck" class="glass-button">Утка</a>
-    <a href="/fox" class="glass-button">Лисы</a>
-    <a href="/weather-minsk" class="glass-button">Погода</a>
+        <nav class="main-nav">
+            <a href="/" class="glass-button">Главная</a>
+            <a href="/duck" class="glass-button">Утка</a>
+            <a href="/fox" class="glass-button">Лисы</a>
+            <a href="/weather-minsk" class="glass-button">Погода</a>
+            <a href="{{ url_for('currency_converter') }}" class="glass-button">
+                Конвертер валют
+            </a>
 
-    {% if not session.get('user') %}
-        {# Показываем "Войти" только если мы НЕ на странице логина #}
-        {% if request.path != '/login/' %}
-            <a href="/login/" class="glass-button auth-new">Войти</a>
-        {% endif %}
+            {% if not session.get('user') %}
+                {% if request.path != '/login/' %}
+                    <a href="/login/" class="glass-button auth-new">Войти</a>
+                {% endif %}
 
-        {# Показываем "Регистрацию" только если мы НЕ на странице регистрации #}
-        {% if request.path != '/register/' %}
-            <a href="/register/" class="glass-button auth-new">Регистрация</a>
-        {% endif %}
-    {% else %}
-        {# Если зашли, показываем только выход #}
-        <a href="/logout" class="glass-button logout-new">Выйти ({{ session['user'] }})</a>
-    {% endif %}
-</nav>
-</nav>
+                {% if request.path != '/register/' %}
+                    <a href="/register/" class="glass-button auth-new">Регистрация</a>
+                {% endif %}
+            {% else %}
+                <a href="/logout" class="glass-button logout-new">
+                    Выйти ({{ session['user'] }})
+                </a>
+            {% endif %}
+        </nav>
     </header>
 
     <!-- основной контент -->
@@ -49,10 +48,12 @@
         </div>
     </main>
 
-<footer class="footer">
+    <!-- подвал -->
+    <footer class="footer">
         <div class="main-glass footer-content">
             &copy; 2026 Мой первый сайт
         </div>
     </footer>
+
 </body>
 </html>

@@ -18,12 +18,13 @@
         <hr style="border: 0.5px solid rgba(255,255,255,0.1); margin: 20px 0;">
 
         <h3 class="level-2">Разделы</h3>
-        <ul class="gen-main-list" style="list-style: none; padding: 0;">
-            <li><a href="#tables" class="main-page-link">Таблицы камней</a></li>
-            <li><a href="#poetry" class="main-page-link">Галерея стихов</a></li>
-            <li><a href="#generators" class="main-page-link">Генераторы</a></li>
-            <li><a href="#elements" class="main-page-link">Химия</a></li>
-        </ul>
+       <ul class="gen-main-list" style="list-style: none; padding: 0;">
+
+   <li><a href="#poetry" class="main-page-link">Поэтическая пауза</a></li>
+    <li><a href="#char-stones" class="main-page-link">Характеристики камней</a></li>
+    <li><a href="#fade-headers" class="main-page-link">Заголовки уровня</a></li>
+    <li><a href="#level" class="main-page-link">Карта прохождения</a></li>
+</ul>
     </div>
 {% endblock %}
 
@@ -36,7 +37,7 @@
             </div>
         </section>
 
-           <section class="hw-section">
+    <section class="hw-section">
     <div class="info-widget">
         <div class="widget-header">
             <span class="city-tag">Кальяри, Италия</span>
@@ -45,26 +46,27 @@
         <div class="info-grid">
             <div class="info-item">
                 <span class="label">Неделя</span>
-                <span class="value">06 неделя, 2026</span>
+                <span class="value">{{ info.week }} неделя, 2026</span>
             </div>
 
             <div class="info-item">
                 <span class="label">Дата и время</span>
-                <span class="value">05.02.2026 16:33</span>
+                <span class="value">{{ info.full_date }}</span>
             </div>
 
             <div class="info-item">
                 <span class="label">Месяц</span>
-                <span class="value">Февраль 2026</span>
+                <span class="value">{{ info.month }}</span>
             </div>
 
             <div class="info-item">
                 <span class="label">Время</span>
-                <span class="value" id="live-clock">16:33</span>
+                <span class="value" id="live-clock">{{ info.time }}</span>
             </div>
         </div>
     </div>
-        </section>
+</section>
+
 
         <h2 id="poetry" class="level-1" style="margin-top: 40px;">Поэтическая пауза</h2>
 
@@ -106,8 +108,10 @@
             </div>
         </section>
 
-                <section class="hw-section">
+
+               <section class="hw-section" id="char-stones">
     <h3>Характеристики драгоценных камней</h3>
+    </section>
     <table class="animated-table">
         <thead>
             <tr>
@@ -152,8 +156,9 @@
     </table>
 </section>
 
-         <section class="hw-section">
+     <section class="hw-section" id="mining-stones">
     <h3>Добыча камней по годам</h3>
+    </section>
     <table class="animated-table">
         <thead>
             <tr>
@@ -191,8 +196,9 @@
         </tbody>
     </table>
 </section>
-            <section class="hw-section">
-    <h3>Архив добычи (2010-2014) — Полные данные</h3>
+    <section class="hw-section" id="archive">
+    <h3>Архив добычи (2010-2014)</h3>
+    </section>
     <table class="animated-table">
         <thead>
             <tr>
@@ -223,8 +229,9 @@
     </table>
 </section>
 
-  <section class="hw-section">
+  <section class="hw-section" id="generators">
     <h2 class="level-1">Генераторы</h2>
+    </section>
     <ul class="gen-main-list">
         <li><span>Цвета</span>
             <ul>
@@ -259,8 +266,10 @@
     </ul>
 </section>
 
-</section>
-<section class="hw-section">
+<section class="hw-section" id="fade-headers">
+    <h3>Заголовки уровня</h3>
+    </section>
+
     <div class="fade-headers">
         <h1 class="level-1">Заголовок первого уровня</h1>
         <h2 class="level-2">Заголовок второго уровня</h2>
@@ -272,7 +281,7 @@
         <a href="/" class="main-page-link">ведущая на главную страницу</a>
     </p>
 </section>
-
+</section>
 
 
 
@@ -316,8 +325,9 @@
     </table>
 </section>
 
-        <section class="hw-section">
-            <h2>Карта выполнения</h2>
+       <section class="hw-section" id="level">
+    <h3>Карта выполнения</h3>
+    </section>
             <img src="https://img.freepik.com/premium-vector/map-treasures-paper-parchment_8071-3421.jpg"
                  alt="Карта сокровищ"
                  style="width:100%; max-width:500px; border-radius: 15px; border: 3px solid #8b4513; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
@@ -341,4 +351,20 @@
     .hw-section { margin-bottom: 30px; padding: 20px; background: rgba(255, 255, 255, 0.03); border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
     .hw-section:hover { background: rgba(255, 255, 255, 0.07); border-color: rgba(255, 182, 193, 0.2); }
 </style>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+
+        const timeString = hours + ':' + minutes + ':' + seconds;
+        document.getElementById('live-clock').textContent = timeString;
+    }
+
+    // Обновляем каждую секунду
+    setInterval(updateClock, 1000);
+    updateClock(); // Запускаем сразу при загрузке
+</script>
 {% endblock %}

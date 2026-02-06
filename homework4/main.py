@@ -1,7 +1,14 @@
 import re
 import requests
 from flask import Flask, render_template, request, redirect, session
+from datetime import datetime
+import urllib3
+# Импорты для продвинутой настройки запросов (чтобы не тормозило)
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
+
+urllib3.disable_warnings()
 app = Flask(__name__)
 app.secret_key = "secret123"
 
@@ -154,11 +161,93 @@ def homework5_page():
     return render_template('homework5.html')
 
 
+
+
 #Задание 6
+
 @app.route('/homework6')
 def homework6():
-    return render_template('homework6.html')
+    now = datetime.now()
+    rates = []
 
+    data = {
+        'time': now.strftime("%H:%M:%S"),
+        'full_date': now.strftime("%d.%m.%Y %H:%M"),
+        'week': now.strftime("%V"),
+        'month': now.strftime("%B %Y"),
+        'rates': rates
+    }
+    return render_template('homework6.html', info=data)
+
+
+# КУРС ВАЛЮТ
+
+@app.route('/currency', methods=['GET', 'POST'])
+def currency_converter():
+    date_val = datetime.now().strftime('%Y-%m-%d')
+    amount = ''
+    from_curr = 'USD'
+    to_curr = 'BYN'
+    result_text = None
+    error_msg = None
+
+    if request.method == 'POST':
+        date_val = request.form.get('date')
+        amount = request.form.get('amount')
+        from_curr = request.form.get('from_curr')
+        to_curr = request.form.get('to_curr')
+
+        # обработка 8 / 8.0 / 8,0
+        try:
+            amount = float(amount.replace(',', '.'))
+        except:
+            error_msg = "Введите корректную сумму"
+            return render_template(
+                'currency.html',
+                error=error_msg,
+                date=date_val,
+                amount=amount,
+                from_curr=from_curr,
+                to_curr=to_curr
+            )
+
+        try:
+            # ✅ СТАБИЛЬНЫЙ API
+            url = f"https://open.er-api.com/v6/latest/{from_curr}"
+            response = requests.get(url, timeout=5)
+            data = response.json()
+
+            if data.get("result") != "success":
+                raise Exception("API error")
+
+            rates = data.get("rates", {})
+            rate = rates.get(to_curr)
+
+            if rate is None:
+                raise Exception("Currency not found")
+
+            result = amount * rate
+            result_text = f"{amount} {from_curr} = {round(result, 2)} {to_curr}"
+
+        except Exception as e:
+            print("Currency API error:", e)
+            error_msg = "Сервис курсов валют временно недоступен"
+
+    return render_template(
+        'currency.html',
+        result=result_text,
+        error=error_msg,
+        date=date_val,
+        amount=amount,
+        from_curr=from_curr,
+        to_curr=to_curr
+    )
+
+# ------------------ ЗАПУСК ------------------
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="homework-container" style="display: flex; flex-direction: column; align-items: center; padding-top: 40px;">
+    <div class="card-glass" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(15px); padding: 35px; border-radius: 30px; width: 100%; max-width: 480px; border: 1px solid rgba(255,255,255,0.2); text-align: center;">
+
+        <h1 style="color: white; font-size: 1.8em; margin-bottom: 25px;">Currency </h1>
+
+        <form method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+            <input type="date" name="date" value="{{ date }}" class="menu-btn" style="background: white; border: none; width: 100%; box-sizing: border-box;">
+
+            <input type="number" step="0.01" name="amount" placeholder="Enter amount" value="{{ amount }}"
+                   style="padding: 15px; border-radius: 20px; border: none; background: white; font-size: 1.1em;">
+
+            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; color: white;">
+                <select name="from_curr" class="menu-btn" style="background: rgba(255,255,255,0.8); width: 100px; margin: 0;">
+                    <option value="USD" {% if from_curr =='USD' %}selected{% endif %}>USD</option>
+                    <option value="EUR" {% if from_curr =='EUR' %}selected{% endif %}>EUR</option>
+                    <option value="RUB" {% if from_curr =='RUB' %}selected{% endif %}>RUB</option>
+                    <option value="BYN" {% if from_curr =='BYN' %}selected{% endif %}>BYN</option>
+                </select>
+
+                <span style="font-size: 1.5em;">➔</span>
+
+                <select name="to_curr" class="menu-btn" style="background: rgba(255,255,255,0.8); width: 100px; margin: 0;">
+                    <option value="BYN" {% if to_curr =='BYN' %}selected{% endif %}>BYN</option>
+                    <option value="USD" {% if to_curr =='USD' %}selected{% endif %}>USD</option>
+                    <option value="EUR" {% if to_curr =='EUR' %}selected{% endif %}>EUR</option>
+                    <option value="RUB" {% if to_curr =='RUB' %}selected{% endif %}>RUB</option>
+                </select>
+            </div>
+
+            <button type="submit" class="menu-btn" style="width: 100%; background: #6c5ce7; color: white; border: none; cursor: pointer; font-weight: bold;">Calculate Result</button>
+        </form>
+
+      {% if result %}
+    <div style="margin-top: 30px; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 20px;">
+        <div style="font-size: 1.6em; font-weight: bold; color: #333;">{{ result }}</div>
+    </div>
+{% endif %}
+
+{% if error %}
+    <div style="margin-top: 30px; background: rgba(255, 107, 107, 0.2); border: 1px solid #ff6b6b; padding: 20px; border-radius: 20px; color: white;">
+        <strong>⚠️ {{ error }}</strong>
+    </div>
+{% endif %}
+
+        <a href="{{ url_for('index') }}" style="display: inline-block; margin-top: 25px; color: white; opacity: 0.7; text-decoration: none; font-size: 0.9em;">← На главную/Back </a>
+    </div>
+</div>
+{% endblock %}

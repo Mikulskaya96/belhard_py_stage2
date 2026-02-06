@@ -876,3 +876,25 @@ sub {
     border-color: #00d4ff;
 }
 
+
+/* КУРС ВАЛЮТ*/
+.menu-btn {
+    display: block;
+    width: 200px;
+    padding: 10px 20px;
+    margin: 10px auto;
+    background: rgba(255, 255, 255, 0.5); /* Полупрозрачный фон  */
+    backdrop-filter: blur(5px); /* Эффект размытия фона */
+    border-radius: 50px; /* Сильное скругление (форма капсулы) */
+    text-decoration: none;
+    color: #444; /* Темный текст */
+    font-weight: 500;
+    transition: 0.3s;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.menu-btn:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+}
