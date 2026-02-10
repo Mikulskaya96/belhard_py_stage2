@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Таблица рекордов</h2>
+<table border="1" style="width: 100%; text-align: left; border-collapse: collapse;">
+    <tr style="background: #eee;">
+        <th>Имя пользователя</th>
+        <th>Викторина</th>
+        <th>Баллы</th>
+    </tr>
+    {% for res in results %}
+    <tr>
+        <td>{{ res.user.username }}</td>
+        <td>{{ res.quiz.title }}</td>
+        <td>{{ res.score }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<a href="{{ url_for('index') }}">На главную</a>
+{% endblock %}

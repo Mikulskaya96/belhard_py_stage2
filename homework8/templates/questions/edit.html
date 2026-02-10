@@ -1,0 +1,30 @@
+<form method="POST">
+    <div class="form-group">
+        <label for="text">Текст вопроса:</label>
+        <input type="text" class="form-control" id="text" name="text" value="{{ question.text }}" required>
+    </div>
+
+    <div class="form-group">
+        <label for="quiz_id">Викторина:</label>
+        <select class="form-control" id="quiz_id" name="quiz_id" required>
+            {% for quiz in quizzes %}
+                <option value="{{ quiz.id }}" {% if quiz.id == question.quiz_id %}selected{% endif %}>
+                    {{ quiz.title }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="user_id">Пользователь:</label>
+        <select class="form-control" id="user_id" name="user_id" required>
+            {% for user in users %}
+                <option value="{{ user.id }}" {% if user.id == question.user_id %}selected{% endif %}>
+                    {{ user.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+</form>

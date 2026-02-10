@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="max-width: 600px; margin: auto; text-align: center;">
+    <h2>Викторина: {{ quiz.title }}</h2>
+
+    <div style="margin-bottom: 20px; background: #fff3f3; padding: 10px; border-radius: 10px;">
+        <label>Кто играет сейчас?</label>
+        <select id="current_user" style="padding: 5px;">
+            {% for user in users %}
+                <option value="{{ user.id }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div id="quiz-area">
+        {% for question in questions %}
+        <div class="q-block" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 8px;">
+            <p>{{ question.text }}</p>
+            <input type="text" class="user-answer" data-correct="{{ question.answer }}" placeholder="Ваш ответ">
+        </div>
+        {% endfor %}
+
+        <button onclick="finishGame()" class="btn" style="background: #4CAF50; color: white; padding: 10px 20px;">Завершить и сохранить результат</button>
+    </div>
+
+    <form id="save-form" action="{{ url_for('save_result') }}" method="POST" style="display: none;">
+        <input type="hidden" name="user_id" id="form_user_id">
+        <input type="hidden" name="quiz_id" value="{{ quiz.id }}">
+        <input type="hidden" name="score" id="form_score">
+    </form>
+</div>
+
+<script>
+function finishGame() {
+    let questions = document.querySelectorAll('.user-answer');
+    let score = 0;
+
+    questions.forEach(q => {
+        if (q.value.trim().toLowerCase() === q.getAttribute('data-correct').toLowerCase()) {
+            score++;
+        }
+    });
+
+    // Заполняем скрытую форму
+    document.getElementById('form_user_id').value = document.getElementById('current_user').value;
+    document.getElementById('form_score').value = score;
+
+    alert('Вы набрали ' + score + ' баллов! Результат будет сохранен.');
+    document.getElementById('save-form').submit();
+}
+</script>
+{% endblock %}

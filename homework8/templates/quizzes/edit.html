@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Редактировать викторину</h2>
+<form method="POST">
+    <label for="title">Название:</label>
+    <input type="text" id="title" name="title" value="{{ quiz.title }}" required>
+    <button type="submit" class="btn">Сохранить</button>
+</form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Добавить вопрос</h2>
+<form method="POST">
+    <label for="text">Текст вопроса:</label>
+    <input type="text" id="text" name="text" required>
+
+    <label for="answer">Правильный ответ:</label>
+    <input type="text" id="answer" name="answer" required>
+
+    <label for="quiz_id">Викторина:</label>
+    <select id="quiz_id" name="quiz_id" required>
+        {% for quiz in quizzes %}
+        <option value="{{ quiz.id }}">{{ quiz.title }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit" class="btn">Добавить</button>
+</form>
+{% endblock %}

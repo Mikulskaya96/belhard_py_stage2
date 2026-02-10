@@ -24,6 +24,7 @@
             <a href="{{ url_for('currency_converter') }}" class="glass-button">
                 Конвертер валют
             </a>
+            <a href="http://127.0.0.1:5001/" class="glass-button">Викторины</a>
 
             {% if not session.get('user') %}
                 {% if request.path != '/login/' %}

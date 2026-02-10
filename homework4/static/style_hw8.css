@@ -1,0 +1,146 @@
+/* Основные настройки */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff0f3; /* Светло-розовый фон */
+    margin: 0;
+    color: #4a4a4a;
+}
+
+/* Шапка сайта */
+header {
+    background: linear-gradient(135deg, #ff8fa3, #ff4d6d);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Навигация */
+nav {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    backdrop-filter: blur(5px); /* Эффект стекла */
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+nav a:hover {
+    background: white;
+    color: #ff4d6d;
+    transform: translateY(-3px);
+}
+
+/* Контентная область */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    background: #ff758f;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: #ff4d6d;
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+}
+
+.btn.delete {
+    background: #ffb3c1;
+}
+
+.btn.delete:hover {
+    background: #c9184a;
+}
+
+/* Таблицы */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 15px;
+    overflow: hidden; /* Чтобы скруглить углы таблицы */
+}
+
+th {
+    background-color: #ffb3c1;
+    color: #590d22;
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #ffe5ec;
+}
+
+tr:hover {
+    background-color: #fff0f3;
+}
+
+/* Формы */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, select, textarea {
+    padding: 12px;
+    border: 2px solid #ffccd5;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1em;
+}
+
+input:focus {
+    border-color: #ff758f;
+}
+
+/* Карточки вопросов в игре */
+.question-card {
+    background: #fff;
+    border: 2px solid #ffccd5;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Подвал */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #a3a3a3;
+    font-size: 0.9em;
+}
