@@ -3,9 +3,6 @@ import requests
 from flask import Flask, render_template, request, redirect, session
 from datetime import datetime
 import urllib3
-# Импорты для продвинутой настройки запросов (чтобы не тормозило)
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
 
 
 urllib3.disable_warnings()
