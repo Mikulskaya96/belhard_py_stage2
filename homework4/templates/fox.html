@@ -12,8 +12,8 @@
         </div>
 
         <div class="main-links" style="flex-direction: row; flex-wrap: wrap; justify-content: center; margin-top: 30px;">
-            <a href="/fox/10" class="glass-button">Показать 10 лис</a>
-            <a href="/fox/4" class="glass-button">Показать 4 лисы</a>
+            <a href="{{ url_for('fox', n=10) }}" class="glass-button">Показать 10 лис</a>
+            <a href="{{ url_for('fox', n=4) }}" class="glass-button">Показать 4 лисы</a>
             <a href="/kurama" class="glass-button">Показать Курама</a>
             <a href="/" class="glass-button">На главную</a>
         </div>

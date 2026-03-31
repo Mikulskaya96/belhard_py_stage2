@@ -26,9 +26,17 @@
                 которую получает по API https://random-d.uk/api/random
 """
 
+import os
+from pathlib import Path
+
+from dotenv import load_dotenv
 from flask import Flask, render_template
 import requests
-API_KEY = "60fb59c0a5dfacd337bf083de9286859" #ключ погода
+
+_ROOT = Path(__file__).resolve().parent.parent
+load_dotenv(_ROOT / ".env")
+
+API_KEY = os.environ.get("OPENWEATHER_API_KEY")
 app = Flask(__name__)
 
 #1
@@ -56,17 +64,6 @@ def duck():
                     если int больше 10 или меньше 1 - вывести сообщение
                     что можно только от 1 до 10
 """
-#2
-# @app.route("/fox/")
-# def fox():
-#     url = "https://randomfox.ca/floof/"
-#     response = requests.get(url)
-#     data = response.json()
-#
-#     fox_image = data["image"]
-#
-#     return render_template("fox.html", fox_image=fox_image)
-
 
 
 def get_foxes(count):
@@ -86,32 +83,17 @@ def get_foxes(count):
     return fox_images
 
 
-@app.route("/fox/")
-def fox_4():
-    fox_images = get_foxes(4)
-    return render_template("fox.html", fox_images=fox_images, count=4)
-
-
-@app.route("/fox/10/")
-def fox_10():
-    fox_images = get_foxes(10)
-    return render_template("fox.html", fox_images=fox_images, count=10)
-
-
-
-
-
-
+@app.route("/fox/<int:n>/")
+def fox(n):
+    if n < 1 or n > 10:
+        return "Можно запросить только от 1 до 10 лис."
+    fox_images = get_foxes(n)
+    return render_template("fox.html", fox_images=fox_images, count=n)
 
 
 """
 3. - по желанию добавить еще один ендпоинт на любую тему
 """
-# @app.route("/kurama/")
-# def kurama():
-#     # Прямая ссылка на  Кураму
-#     kurama_image = "https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/kurama-y-naruto-andres-montanez.jpg"
-#     return render_template("kurama.html", kurama_image=kurama_image)
 
 @app.route("/kurama/")
 def kurama():
@@ -126,10 +108,14 @@ def kurama():
     - /weather/<city>/ - показывает погоду в городе указанного в city
                     если такого города нет - написать об этом
 """
-#4.
 
 @app.route("/weather-minsk/")
 def weather_minsk():
+    if not API_KEY:
+        return (
+            "Задайте переменную окружения OPENWEATHER_API_KEY (ключ OpenWeather).",
+            503,
+        )
     city = "Minsk"
     url = (
         f"https://api.openweathermap.org/data/2.5/weather"
@@ -151,6 +137,11 @@ def weather_minsk():
 #другой город
 @app.route("/weather/<city>/")
 def weather_city(city):
+    if not API_KEY:
+        return (
+            "Задайте переменную окружения OPENWEATHER_API_KEY (ключ OpenWeather).",
+            503,
+        )
     url = (
         f"https://api.openweathermap.org/data/2.5/weather"
         f"?q={city}&appid={API_KEY}&units=metric&lang=ru"

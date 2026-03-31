@@ -4,3 +4,9 @@ __pycache__/
 .venv/
 .idea/
 .env
+README_hw10.md
+
+# локальные SQLite и данные Flask
+*.db
+instance/
+homework10/db/

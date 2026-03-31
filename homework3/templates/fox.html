@@ -38,8 +38,8 @@
 
 <div class="buttons">
 
-    <a href="/fox/">Показать 10 лис</a>
-    <a href="/fox/10/">Показать 4 лис</a>
+    <a href="{{ url_for('fox', n=10) }}">Показать 10 лис</a>
+    <a href="{{ url_for('fox', n=4) }}">Показать 4 лисы</a>
     <a href="/kurama/">Показать Kурама</a>
     <br><br>
     <a href="/">Назад на главную</a>
