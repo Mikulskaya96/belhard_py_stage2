@@ -53,7 +53,7 @@ PNG files live in [`docs/screenshots/`](docs/screenshots/). **What to capture an
 
 | File (put in `docs/screenshots/`) | What to show |
 |-----------------------------------|--------------|
-| `quiz-home.png` | **homework8** — home page after DB is ready (quizzes / navigation). |
+| `quiz-home.png` | **homework8** — quiz list (`/quizzes/`) or main entry (navigation, “Играть”). |
 | `quiz-play.png` | **homework8** — playing a quiz (questions on screen). |
 | `quiz-leaderboard.png` | **homework8** — leaderboard / results. |
 | `fastapi-docs.png` | **homework10** — Swagger UI at `/docs`. |
@@ -130,6 +130,7 @@ belhard_py_stage2/
 ├── docs/screenshots/    # Optional UI screenshots for README
 ├── homework1/ … homework10/   # Course assignments
 ├── requirements.txt
+├── README.md
 ├── .env.example
 └── LICENSE
 ```

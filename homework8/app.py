@@ -156,7 +156,13 @@ def delete_question(id):
 def play_quiz(quiz_id):
     quiz = Quiz.query.get_or_404(quiz_id)
     questions_list = Question.query.filter_by(quiz_id=quiz_id).all()
-    return render_template('quizzes/play.html', quiz=quiz, questions=questions_list)
+    all_users = User.query.all()
+    return render_template(
+        'quizzes/play.html',
+        quiz=quiz,
+        questions=questions_list,
+        users=all_users,
+    )
 
 # Финиш
 @app.route('/save_result/', methods=['POST'])
