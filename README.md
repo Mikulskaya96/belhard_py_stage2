@@ -1,54 +1,145 @@
 # belhard_py_stage2
 
-Student Python coursework (Belhard): **Flask** apps with Jinja2 templates, external HTTP APIs, and sessions; a **quiz** mini-project using **Flask + SQLAlchemy + Flask-Migrate**; and a separate **REST API** built with **FastAPI** (`homework10`).
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/)
+[![CI](https://github.com/Mikulskaya96/belhard_py_stage2/actions/workflows/ci.yml/badge.svg)](https://github.com/Mikulskaya96/belhard_py_stage2/actions/workflows/ci.yml)
 
-## Stack
+Student coursework (**Belhard / Python stage 2**): small **Flask** apps (Jinja2, external APIs, sessions), a **quiz** project with **Flask + SQLAlchemy + Flask-Migrate**, and a **FastAPI** REST API.
 
-Flask, FastAPI, SQLAlchemy, Pydantic, uvicorn, requests, python-dotenv.
+---
 
-## Run (example: quizzes — `homework8`)
+## Contents
 
-**Windows (PowerShell):**
+- [Features](#features)
+- [Tech stack](#tech-stack)
+- [Screenshots](#screenshots)
+- [Quick start](#quick-start)
+- [Run individual modules](#run-individual-modules)
+- [Environment variables](#environment-variables)
+- [Repository layout](#repository-layout)
+- [GitHub: About & topics](#github-about--topics)
+- [License](#license)
+
+---
+
+## Features
+
+| Area | What it covers |
+|------|----------------|
+| **Networking** | TCP client/server (`homework1`, `homework2`) |
+| **Flask basics** | Routes, templates, Random Duck/Fox APIs, OpenWeather (`homework3`) |
+| **Flask + auth & extras** | Registration/login (session), currency converter (`homework4`) |
+| **Flask + DB** | Users, quizzes, questions, play flow, leaderboard (`homework8`) |
+| **REST API** | Async SQLAlchemy, Pydantic, routers (`homework10`) |
+
+UI strings are mostly **Russian** (course language); this README is **English** for recruiters and GitHub.
+
+---
+
+## Tech stack
+
+| Layer | Technologies |
+|-------|----------------|
+| Web | Flask, Jinja2, FastAPI, Starlette, uvicorn |
+| Data | SQLAlchemy, Flask-SQLAlchemy, Alembic / Flask-Migrate, Pydantic, aiosqlite |
+| HTTP | requests |
+| Config | python-dotenv |
+
+---
+
+## Screenshots
+
+Add images under [`docs/screenshots/`](docs/screenshots/) and embed them here, for example:
+
+```markdown
+![Quiz leaderboard](docs/screenshots/leaderboard.png)
+```
+
+*(Placeholder — replace with your own captures.)*
+
+---
+
+## Quick start
+
+**Windows (PowerShell)**
 
 ```bash
 python -m venv .venv
 .\.venv\Scripts\activate
 pip install -r requirements.txt
-cd homework8
-python app.py
 ```
 
-**Linux / macOS:**
+**Linux / macOS**
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-cd homework8
-python app.py
 ```
 
-Default URL: `http://127.0.0.1:5001/`
+---
+
+## Run individual modules
+
+| Module | Command (from repo root, venv active) | URL / note |
+|--------|----------------------------------------|------------|
+| **Quiz app** | `cd homework8` → `python app.py` | <http://127.0.0.1:5001/> |
+| **Flask demos** | `cd homework3` or `cd homework4` → `python app.py` / `python main.py` | default Flask port **5000** |
+| **FastAPI** | `cd homework10` → `python main.py` | <http://127.0.0.1:8000/docs> |
+
+For weather-related routes in **homework3** / **homework4**, set `OPENWEATHER_API_KEY` (see below).
+
+---
 
 ## Environment variables
 
-Weather features in **homework3** and **homework4** need an OpenWeather key:
+| Variable | Required for | Notes |
+|----------|----------------|-------|
+| `OPENWEATHER_API_KEY` | Weather in homework3, homework4 | [OpenWeather API](https://openweathermap.org/api) |
+| `SECRET_KEY` | Signed cookies in homework4 | Optional locally; use a strong value in production |
 
-- `OPENWEATHER_API_KEY` — create a key at [openweathermap.org/api](https://openweathermap.org/api).
+Copy `.env.example` to `.env` at the **repository root**. `homework3` and `homework4` load it via `python-dotenv`. The `.env` file is **not** committed.
 
-**homework4** (signed session cookies):
+---
 
-- `SECRET_KEY` — use a long random string in production. For local runs you can omit it; a dev-only fallback is used.
+## Repository layout
 
-Copy `.env.example` to `.env` in the **repository root**, fill in values (`.env` is gitignored). For **homework3** and **homework4**, variables from that file are loaded automatically via `python-dotenv`. You can still override them with real environment variables or your IDE run configuration.
+```
+belhard_py_stage2/
+├── .github/workflows/   # CI (install deps + syntax check)
+├── docs/screenshots/    # Optional UI screenshots for README
+├── homework1/ … homework10/   # Course assignments
+├── requirements.txt
+├── .env.example
+└── LICENSE
+```
 
-## Project layout
+---
 
-- `homework3`, `homework4` — Flask demos (ducks, foxes, weather, currency converter, etc.).
-- `homework10` — FastAPI: from the `homework10` folder run `python main.py` (or uvicorn as described in `README_hw10.md`).
+## GitHub: About & topics
+
+To make the repo page look complete (like a polished portfolio project), set the **About** section on GitHub:
+
+1. **Description** (example):
+
+   `Python coursework — Flask (Jinja2, APIs, sessions), quiz app with SQLAlchemy + migrations, FastAPI REST API.`
+
+2. **Website** — leave empty or add a link if you deploy later (e.g. Render).
+
+3. **Topics** (suggested tags):
+
+   `python`, `flask`, `fastapi`, `sqlalchemy`, `pydantic`, `jinja2`, `rest-api`, `sqlite`, `python-dotenv`, `education`
+
+4. Enable **Releases** only if you use them; **Issues** optional.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
 ## Кратко по-русски
 
-Учебный репозиторий: Flask (шаблоны, API, сессии), квизы на Flask + SQLAlchemy + миграции, отдельно API на FastAPI. Запуск квизов: см. блок **Run** выше. Скопируйте `.env.example` в `.env` в корне репозитория и заполните ключи; для homework3/homework4 файл подхватывается автоматически.
+Учебный репозиторий: Flask (шаблоны, внешние API, сессии), квизы на Flask + SQLAlchemy + миграции, отдельно API на FastAPI. Запуск и переменные окружения — см. таблицы выше. Скопируйте `.env.example` в `.env` в корне репозитория.
