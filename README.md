@@ -49,13 +49,33 @@ UI strings are mostly **Russian** (course language); this README is **English** 
 
 ## Screenshots
 
-Add images under [`docs/screenshots/`](docs/screenshots/) and embed them here, for example:
+PNG files live in [`docs/screenshots/`](docs/screenshots/). **What to capture and exact filenames** (so README links work): see [`docs/screenshots/README.md`](docs/screenshots/README.md) (RU) or the table below.
 
-```markdown
-![Quiz leaderboard](docs/screenshots/leaderboard.png)
-```
+| File (put in `docs/screenshots/`) | What to show |
+|-----------------------------------|--------------|
+| `quiz-home.png` | **homework8** — home page after DB is ready (quizzes / navigation). |
+| `quiz-play.png` | **homework8** — playing a quiz (questions on screen). |
+| `quiz-leaderboard.png` | **homework8** — leaderboard / results. |
+| `fastapi-docs.png` | **homework10** — Swagger UI at `/docs`. |
+| `flask-main.png` | **homework4** — main page after login (optional, shows auth + UI). |
 
-*(Placeholder — replace with your own captures.)*
+**How to capture (Windows):** `Win + Shift + S` (Snipping Tool), save as PNG. **How to capture (macOS):** `Cmd + Shift + 4`.
+
+### Quiz app (Flask + SQLAlchemy)
+
+![Homework8 — home](docs/screenshots/quiz-home.png)
+
+![Homework8 — play](docs/screenshots/quiz-play.png)
+
+![Homework8 — leaderboard](docs/screenshots/quiz-leaderboard.png)
+
+### FastAPI (OpenAPI)
+
+![Homework10 — /docs](docs/screenshots/fastapi-docs.png)
+
+### Flask demos (optional)
+
+![Homework4 — main](docs/screenshots/flask-main.png)
 
 ---
 

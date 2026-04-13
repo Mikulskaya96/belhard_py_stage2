@@ -1,9 +1,38 @@
-# Screenshots
+# Скриншоты для портфолио (GitHub)
 
-Add PNG or WebP images of your running apps here (e.g. quiz UI, FastAPI `/docs`, weather page) and reference them from the root `README.md`:
+Картинки клади **сюда**, в папку `docs/screenshots/`, с **точными именами** — тогда они автоматически отображаются в корневом `README.md`.
 
-```markdown
-![Quiz app](docs/screenshots/quiz-home.png)
+## Что сфотографировать
+
+| Имя файла | Что открыть перед снимком | Что должно быть на экране |
+|-----------|---------------------------|---------------------------|
+| `quiz-home.png` | Запуск: из корня репо `cd homework8` → `python app.py` → браузер `http://127.0.0.1:5001/` | Главная квиз-приложения (список/меню викторин). |
+| `quiz-play.png` | Тот же сервер → запусти прохождение викторины | Экран с вопросами (игра). |
+| `quiz-leaderboard.png` | Страница лидерборда в том же приложении | Таблица результатов / лидеры. |
+| `fastapi-docs.png` | `cd homework10` → `python main.py` → `http://127.0.0.1:8000/docs` | Swagger (список эндпоинтов). |
+| `flask-main.png` | *Необязательно.* `cd homework4` → `python main.py` → залогинься → главная | Главная с демо (утки, погода и т.д.) после входа. |
+
+Минимум для сильного портфолио: **три квиза** + **один FastAPI** (`quiz-*` + `fastapi-docs.png`).
+
+## Как снять (Windows)
+
+1. Запусти нужное приложение в терминале.
+2. Открой нужный URL в браузере (лучше **не** на весь экран — аккуратное окно читается лучше).
+3. **`Win + Shift + S`** → выдели область → сохрани как PNG.
+4. Положи файл в эту папку и **переименуй** ровно как в таблице (`quiz-home.png` и т.д.).
+
+## Как снять (macOS)
+
+**`Cmd + Shift + 4`** — выделить область; сохранить как PNG в эту папку с нужным именем.
+
+## После сохранения
+
+Из корня репозитория:
+
+```bash
+git add docs/screenshots/*.png
+git commit -m "docs: add portfolio screenshots"
+git push
 ```
 
-Keeping images in this folder keeps the repository root tidy.
+Пока файлов нет, на GitHub под заголовками Screenshots будут «битые» картинки — это нормально до первого коммита с PNG.
